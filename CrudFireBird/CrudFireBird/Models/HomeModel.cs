@@ -28,12 +28,34 @@ namespace CrudFireBird.Models
 
                 };
 
+                
+
                 lista.Add(cadastro);
             }
 
             return lista;
 
         }
+
+        public HomeModel RetornoDadoPorCODIGO(DataTable dt)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                HomeModel cadastro = new HomeModel()
+                {
+                    CODIGO = int.Parse(dt.Rows[0]["CODIGO"].ToString()),
+                    NOME = dt.Rows[0]["NOME"].ToString(),
+                    IDADE = int.Parse(dt.Rows[0]["IDADE"].ToString())
+                };
+
+                return cadastro;
+            }
+
+            return null; // ou você pode lançar uma exceção aqui
+        }
+
+
+
 
     }
 }

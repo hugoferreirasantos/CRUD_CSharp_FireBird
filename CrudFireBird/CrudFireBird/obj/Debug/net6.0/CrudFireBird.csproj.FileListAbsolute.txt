@@ -31,3 +31,4 @@ D:\Ambiente_Desenvolvimento\Aulas_C#\Projeto MVC - ASP.NET - Crud Firebird\CrudF
 D:\Ambiente_Desenvolvimento\Aulas_C#\Projeto MVC - ASP.NET - Crud Firebird\CrudFireBird\CrudFireBird\obj\Debug\net6.0\CrudFireBird.pdb
 D:\Ambiente_Desenvolvimento\Aulas_C#\Projeto MVC - ASP.NET - Crud Firebird\CrudFireBird\CrudFireBird\obj\Debug\net6.0\CrudFireBird.genruntimeconfig.cache
 D:\Ambiente_Desenvolvimento\Aulas_C#\Projeto MVC - ASP.NET - Crud Firebird\CrudFireBird\CrudFireBird\obj\Debug\net6.0\ref\CrudFireBird.dll
+D:\Ambiente_Desenvolvimento\Aulas_C#\Projeto MVC - ASP.NET - Crud Firebird\CrudFireBird\CrudFireBird\obj\Debug\net6.0\CrudFireBird.sourcelink.json

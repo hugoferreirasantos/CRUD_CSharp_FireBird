@@ -1,0 +1,41 @@
+﻿@model HomeModel
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+
+
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center">
+        <h1 class="text-light">@ViewData["Title"]</h1>
+    </div>
+
+    <form method="post" asp-controller="Home" asp-action="Excluir">
+        <input type="hidden" asp-for=CODIGO />
+
+        <div class="mb-3">
+            <label for="CODIGO" class="form-label text-light">CODIGO</label>
+            <input type="text" class="form-control" asp-for="CODIGO" id="CODIGO" placeholder="Insira um código">
+            <span class="text-danger" asp-validation-for="CODIGO"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="NOME" class="form-label text-light">NOME</label>
+            <input type="text" class="form-control" asp-for="NOME" id="NOME" placeholder="Insira o nome">
+            <span class="text-danger" asp-validation-for="NOME"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="IDADE" class="form-label text-light">IDADE</label>
+            <input type="text" class="form-control" asp-for="IDADE" id="IDADE" placeholder="Insira a idade">
+            <span class="text-danger" asp-validation-for="IDADE"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Excluir</button>
+            <a class="btn btn-primary w-50" asp-controller="Home" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+
+</div>

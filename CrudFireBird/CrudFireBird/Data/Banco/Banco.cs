@@ -1,5 +1,7 @@
-﻿using CrudFireBird.Models;
+﻿using CrudFireBird.Controllers;
+using CrudFireBird.Models;
 using FirebirdSql.Data.FirebirdClient;
+using System.Collections.Generic;
 using System.Data;
 
 namespace CrudFireBird.Data.Banco
@@ -70,6 +72,26 @@ namespace CrudFireBird.Data.Banco
 
             comando.ExecuteNonQuery();
             
+        }
+
+        public DataTable RetornoDado(string select, int CODIGO)
+        {
+            DataTable tabela = new DataTable();
+            FbDataAdapter da = new FbDataAdapter(select, connection);
+            da.SelectCommand.Parameters.Add("@CODIGO", CODIGO);
+            da.Fill(tabela);
+
+            return tabela;
+        }
+
+        public void ExcluirDado(string delete, HomeModel dado)
+        {
+            FbCommand comando = new FbCommand(delete, connection);
+            comando.CommandType = CommandType.Text;
+
+            comando.Parameters.Add("@CODIGO", dado.CODIGO);
+
+            comando.ExecuteNonQuery();
         }
 
     }

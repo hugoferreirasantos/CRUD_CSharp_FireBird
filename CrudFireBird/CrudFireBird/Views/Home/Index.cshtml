@@ -16,6 +16,7 @@
             <th scope="col">CODIGO</th>
             <th scope="col">NOME</th>
             <th scope="col">IDADE</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,10 @@
                     <th scope="row">@cadastro.CODIGO</th>
                     <td>@cadastro.NOME</td>
                     <td>@cadastro.IDADE</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="Editar" asp-route-id="@cadastro.CODIGO" class="btn btn-warning mx-2">Editar</a>
+                        <a asp-controller="Home" asp-action="Excluir" asp-route-id="@cadastro.CODIGO" class="btn btn-danger mx-2">Excluir</a>
+                    </td>
                 </tr>
             }
         }

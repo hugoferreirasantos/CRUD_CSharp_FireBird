@@ -28,7 +28,51 @@ namespace CrudFireBird.Controllers
         public IActionResult Cadastrar()
         {
 
+
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Editar(int? id)
+        {
+            Banco conexao = new Banco();
+            HomeModel dado = new HomeModel();
+
+            if (conexao.bconexao == true)
+            {
+                string sql = "SELECT * FROM CADASTRO WHERE CODIGO = @CODIGO";
+
+                var dt = conexao.RetornoDado(sql, (int)id);
+
+                HomeModel tratarDados = new HomeModel();
+                dado = tratarDados.RetornoDadoPorCODIGO(dt);
+
+                
+
+            }
+
+            return View(dado);
+
+        }
+
+        [HttpGet]
+        public IActionResult Excluir(int ? id)
+        {
+            Banco conexao = new Banco();
+            HomeModel dado = new HomeModel();
+
+            if(conexao.bconexao == true)
+            {
+                string sql = "SELECT * FROM CADASTRO WHERE CODIGO = @CODIGO";
+
+                var dt = conexao.RetornoDado(sql, (int)id);
+
+                HomeModel tratardado = new HomeModel();
+                dado = tratardado.RetornoDadoPorCODIGO(dt);
+
+            }
+
+            return View(dado);
         }
 
 
@@ -45,6 +89,38 @@ namespace CrudFireBird.Controllers
             }
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Editar(HomeModel dados)
+        {
+            Banco conexao = new Banco();
+
+            if (ModelState.IsValid)
+            {
+                string sql = "UPDATE CADASTRO SET CODIGO = @CODIGO, NOME = @NOME, IDADE = @IDADE WHERE CODIGO = @CODIGO ;";
+                conexao.InseriDados(sql, dados);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult Excluir(HomeModel dado)
+        {
+            Banco conexao = new Banco();
+
+            if (ModelState.IsValid)
+            {
+                string sql = "DELETE FROM CADASTRO WHERE CODIGO = @CODIGO";
+                conexao.ExcluirDado(sql, dado);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
         }
 
 
